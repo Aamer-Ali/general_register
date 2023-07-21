@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "646835384946",
+    "project_id": "generalregisterapp",
+    "storage_bucket": "generalregisterapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646835384946:android:e125cd5de4c8addaa288eb",
+        "android_client_info": {
+          "package_name": "com.ali.aamer.general_register.general_register"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646835384946-nn53utfb4jc0mg5ogsaedh5t14veafsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIu8_FiveCoteYM1Gqd3qnoLVujryNO6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646835384946-nn53utfb4jc0mg5ogsaedh5t14veafsq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
