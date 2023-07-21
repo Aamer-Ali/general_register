@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:general_register/common/widgets/button/elevated_buttons.dart';
+import 'package:general_register/common/widgets/spacer/spacer.dart';
 import 'package:general_register/common/widgets/text/error_text.dart';
-import 'package:general_register/common/widgets/spacer/vertical_spacer.dart';
 import 'package:general_register/common/widgets/text_filed/text_filed_with_icon.dart';
 import 'package:general_register/features/authentication/display/state_management/bloc/sign_in_bloc.dart';
 

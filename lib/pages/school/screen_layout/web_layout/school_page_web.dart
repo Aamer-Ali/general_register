@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:general_register/common/widgets/button/elevated_buttons.dart';
-import 'package:general_register/common/widgets/text_filed/simple_text_field.dart';
+import 'package:general_register/common/widgets/spacer/spacer.dart';
 import 'package:general_register/common/widgets/text/simple_texts.dart';
-import 'package:general_register/common/widgets/spacer/vertical_spacer.dart';
-import 'package:general_register/pages/school/bloc/school_information_bloc.dart';
 import 'package:general_register/pages/school/model/drop_down_value_model.dart';
 import 'package:general_register/pages/school/school_page_controller.dart';
 import 'package:general_register/pages/school/widgets/school_page_widget.dart';
