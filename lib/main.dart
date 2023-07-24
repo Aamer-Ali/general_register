@@ -8,7 +8,7 @@ import 'package:general_register/features/authentication/data/datasources/remote
 import 'package:general_register/features/authentication/data/repositories/sign_in_repository_impl.dart';
 import 'package:general_register/features/authentication/display/state_management/bloc/sign_in_bloc.dart';
 import 'package:general_register/features/authentication/domain/usecases/user_sign_in.dart';
-import 'package:general_register/pages/school/bloc/school_information_bloc.dart';
+import 'package:general_register/features/school_information/display/state_management/bloc/school_information_bloc.dart';
 import 'package:responsive_framework/breakpoint.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -10,19 +10,21 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_bloc:
+  flutter_bloc: ^8.1.3
   responsive_framework: ^1.1.0
-  cloud_firestore:
-  firebase_auth:
-  firebase_core:
+  cloud_firestore: ^4.8.3
+  firebase_auth: ^4.7.1
+  firebase_core: ^2.15.0
   go_router: ^9.0.3
   url_strategy: ^0.2.0
-  fluttertoast:
-  shared_preferences:
+  fluttertoast: ^8.2.2
+  shared_preferences: ^2.2.0
   universal_html: ^2.2.3
-  dartz:
-  equatable:
+  dartz: ^0.10.1
+  equatable: ^2.0.5
   email_validator:
+  image_picker: ^1.0.1
+  permission_handler: ^10.4.3
 
 dev_dependencies:
   flutter_test:

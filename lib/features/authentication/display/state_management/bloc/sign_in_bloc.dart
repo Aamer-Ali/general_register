@@ -17,8 +17,11 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   UserSignIn userSignIn;
 
   SignInBloc(this.userSignIn) : super(SignInInitialState()) {
-    // on<EmailEvent>(_emailEvent);
-    // on<PasswordEvent>(_passwordEvent);
+    on<SingInInitialEvent>((event, emit) {
+
+      emit(SignInInitialState());
+    });
+
     on<UserSignInWithEmailPasswordEvent>(_userSignInWithEmailPasswordEvent);
   }
 
@@ -26,15 +29,6 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     final response = await userSignIn(event.email, event.password);
     response.fold((l) => emit(SignInErrorState(message: l.errorMessage)), (r) {
       event.context.goNamed(AppRoutesName.HOME_PAGE);
-      // emit(SignInSuccessState(userInfoEntity: r));
     });
   }
-
-// void _emailEvent(EmailEvent event, Emitter<SignInState> emit) {
-//   emit(state.copyWith(email: event.email));
-// }
-//
-// void _passwordEvent(PasswordEvent event, Emitter<SignInState> emit) {
-//   emit(state.copyWith(password: event.password));
-// }
 }

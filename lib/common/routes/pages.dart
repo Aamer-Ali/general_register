@@ -6,11 +6,11 @@ import 'package:general_register/common/routes/names.dart';
 import 'package:general_register/common/services/storage_service.dart';
 import 'package:general_register/common/values/constatns.dart';
 import 'package:general_register/features/authentication/display/pages/sign_in.dart';
+import 'package:general_register/features/school_information/display/pages/school_page.dart';
 import 'package:general_register/pages/admission/admission_page.dart';
 import 'package:general_register/pages/domicile/domicile_page.dart';
 import 'package:general_register/pages/home/home_page.dart';
 import 'package:general_register/pages/leaving_certificate/leaving_certificate_page.dart';
-import 'package:general_register/pages/school/school_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -20,7 +20,7 @@ class AppPages {
       GoRoute(
         name: AppRoutesName.SIGN_IN_PAGE,
         path: AppRoutesPath.SIGN_IN_PAGE,
-        builder: (BuildContext context, GoRouterState state) => SignIn(),
+        builder: (BuildContext context, GoRouterState state) => const SignIn(),
       ),
       GoRoute(
         name: AppRoutesName.HOME_PAGE,

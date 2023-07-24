@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:general_register/features/school_information/display/pages/school_page.dart';
 import 'package:general_register/pages/admission/admission_page.dart';
 import 'package:general_register/pages/domicile/domicile_page.dart';
 import 'package:general_register/pages/home/screen_lauout/common/common.dart';
 import 'package:general_register/pages/home/screen_lauout/widgets/home_page_widget.dart';
 import 'package:general_register/pages/leaving_certificate/leaving_certificate_page.dart';
-import 'package:general_register/pages/school/school_page.dart';
 
 class HomepageWeb extends StatefulWidget {
   const HomepageWeb({super.key});
