@@ -50,3 +50,13 @@ class OnSchoolLogoChangeEvent extends SchoolInformationEvent {
   @override
   List<Object?> get props => [];
 }
+
+class OnCreateUpdateSchoolInformationEvent extends SchoolInformationEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+class OnGetSchoolInformationEvent extends SchoolInformationEvent {
+  @override
+  List<Object?> get props => [];
+}

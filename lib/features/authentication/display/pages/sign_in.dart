@@ -36,7 +36,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(title: "Login"),
+      appBar: kIsWeb ? null: buildAppBar(title: "Login") ,
       body: BlocConsumer<SignInBloc, SignInState>(
         listener: (context, state) {
           if (state is SignInErrorState) {

@@ -17,13 +17,13 @@ class BuildDropDown extends StatelessWidget {
             attributes.label == null
                 ? Container()
                 : Expanded(
-                    flex: 1, child: BuildSimpleText(attributes: TextAttributes(text: attributes.label.toString()))),
+                    flex: 1, child: BuildText(attributes: TextAttributes(text: attributes.label.toString()))),
             Expanded(
-                flex: 3,
+                flex: 4,
                 child: Container(
                   margin: const EdgeInsets.only(bottom: 10, top: 10),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(5),
                     border: Border.all(color: Colors.black, width: 1.0),
                   ),
                   child: Padding(
@@ -46,7 +46,7 @@ class BuildDropDown extends StatelessWidget {
         ),
         Visibility(
           visible: !attributes.isValid,
-          child: BuildSimpleText(
+          child: BuildText(
             attributes: TextAttributes(
               text: attributes.errorMessage,
               color: Colors.red,

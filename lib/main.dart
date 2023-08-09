@@ -13,11 +13,12 @@ import 'package:responsive_framework/breakpoint.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:url_strategy/url_strategy.dart';
 
 late SharedPreferences sharedPreferences;
 
 void main() async {
-  // setPathUrlStrategy();
+  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   sharedPreferences = await SharedPreferences.getInstance();
   if (kIsWeb) {
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
             create: (context) => SignInBloc(context.read<UserSignIn>()),
           ),
           BlocProvider<SchoolInformationBloc>(
-            create: (context) => SchoolInformationBloc(),
+            create: (context) => SchoolInformationBloc()..add(OnSchoolInitialEvent()),
           ),
         ],
         child: ResponsiveBreakpoints.builder(

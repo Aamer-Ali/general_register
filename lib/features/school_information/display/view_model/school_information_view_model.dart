@@ -1,5 +1,7 @@
+import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -197,18 +199,29 @@ class SchoolInformationViewModel {
       updateInformationButton: ButtonAttributes(
         buttonName: "Update Information",
         onPressed: () {
-          if (formKey!.currentState!.validate()) {
-            print("Going to update information");
-          }
-          if (classSliderRange.start == classSliderRange.end ||
-              classSliderRange.start > classSliderRange.end ||
-              classSliderRange.start == 0) {
+          print(classSliderRange);
+          print(_isClassRangIsValid(classSliderRange));
+          if (!_isClassRangIsValid(classSliderRange)) {
             sliderMessage = "Please select proper rang..";
             onSubmitSetState();
           } else {
             sliderMessage = "";
             onSubmitSetState();
           }
+          if (formKey!.currentState!.validate() && _isClassRangIsValid(classSliderRange)) {
+            print("Going to update information");
+          }
+
+          _readData();
+
+          _addDate(
+            classSliderRange,
+            currentSelectionIndex == 1 ? false : true,
+            aidTypeSelected == null ? aidTypeList[0].label : aidTypeSelected.label.toString(),
+          );
+
+          // _make_string_collection_name("   Iqra urdu boYs hIgh School   ");
+          //TODO: Save data to database;
         },
       ),
       updateLogoButton: ButtonAttributes(
@@ -265,5 +278,63 @@ class SchoolInformationViewModel {
           ),
           onChanged: onChangeRang),
     );
+  }
+
+  bool _isClassRangIsValid(RangeValues classSliderRange) {
+    return (classSliderRange.start != classSliderRange.end && classSliderRange.start != 0);
+  }
+
+  void _addDate(RangeValues classRange, bool isMultipleRegister, String aidType) async {
+    final Map<String, dynamic> schoolData = {
+      "udise": _udiseController.text,
+      "schoolName": _schoolNameController.text,
+      "medium": _mediumController.text,
+      "address": _addressController.text,
+      "phone": _phoneController.text,
+      "email": _emailController.text,
+      "cluster": _clusterController.text,
+      "block": _blockController.text,
+      "state": _stateController.text,
+      "district": _districtController.text,
+      "pin_code": _pinCodeController.text,
+      "board": _boardController.text,
+      "management": _managementController.text,
+      "management": _managementController.text,
+      "upper_class": classRange.start.round(),
+      "lower_class": classRange.end.round(),
+      "is_multiple_register": isMultipleRegister,
+      "aid-type": aidType,
+    };
+    await FirebaseFirestore.instance
+        .collection("general_register")
+        .doc('turabul_haq')
+        .collection('school_info')
+        .doc('school_info')
+        .set(schoolData);
+
+    //TODO Success Show Dialog;
+    print("Data Saved Successfully");
+  }
+
+  void _readData() async {
+    CollectionReference school = FirebaseFirestore.instance.collection("general_register");
+
+    final data =await school
+        .doc('turabul_haq')
+        .collection('school_info')
+        .doc('school_info')
+        .get();
+     print(data["udise"]);
+
+  }
+
+  void _make_string_collection_name(String str) {
+    String newString  = str.trim().toLowerCase().replaceAll(" ", "_");
+    const _chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+    final value =  Random();
+    final data = List.generate(10, (index) => _chars[value.nextInt(_chars.length)]).join();
+
+    print(newString+"_"+data);
+
   }
 }

@@ -5,6 +5,10 @@ class CookieManager {
     html.document.cookie = "$key=$value";
   }
 
+  static logOutUser(String key,bool value) {
+    html.document.cookie = "$key=$value";
+  }
+
   static bool getCookie(String key) {
     bool isUserLogin = false;
     String cookie = html.document.cookie!;

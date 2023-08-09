@@ -12,7 +12,7 @@ class BuildDropDownClassLimit extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(flex: 1, child: BuildSimpleText(attributes: TextAttributes(text: attributes.label.toString()))),
+        Expanded(flex: 1, child: BuildText(attributes: TextAttributes(text: attributes.label.toString()))),
         Expanded(flex: 3, child: BuildDropDown( attributes: attributes)),
       ],
     );

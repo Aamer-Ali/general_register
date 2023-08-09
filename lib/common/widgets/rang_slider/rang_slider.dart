@@ -16,7 +16,7 @@ class BuildRangeSlider extends StatelessWidget {
       children: [
         attributes.labelTextAttributes == null
             ? Container()
-            : BuildSimpleText(attributes: attributes.labelTextAttributes!),
+            : BuildText(attributes: attributes.labelTextAttributes!),
         RangeSlider(
           // min: attributes.minValue,
           max: attributes.maxValue,

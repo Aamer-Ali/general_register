@@ -6,7 +6,9 @@ import 'package:general_register/common/routes/names.dart';
 import 'package:general_register/common/services/storage_service.dart';
 import 'package:general_register/common/values/constatns.dart';
 import 'package:general_register/features/authentication/display/pages/sign_in.dart';
+import 'package:general_register/features/school_information/display/pages/school_information_page.dart';
 import 'package:general_register/features/school_information/display/pages/school_page.dart';
+import 'package:general_register/features/school_information/display/state_management/bloc/school_information_bloc.dart';
 import 'package:general_register/pages/admission/admission_page.dart';
 import 'package:general_register/pages/domicile/domicile_page.dart';
 import 'package:general_register/pages/home/home_page.dart';
@@ -31,6 +33,14 @@ class AppPages {
         name: AppRoutesName.SCHOOL_PAGE,
         path: AppRoutesPath.SCHOOL_PAGE,
         builder: (BuildContext context, GoRouterState state) => const SchoolPage(),
+      ),
+      GoRoute(
+        name: AppRoutesName.SCHOOL_INFORMATION_PAGE,
+        path: AppRoutesPath.SCHOOL_INFORMATION_PAGE,
+        builder: (BuildContext context, GoRouterState state) {
+          context.read<SchoolInformationBloc>().add(OnSchoolInitialEvent());
+          return const SchoolInformationPage();
+        },
       ),
       GoRoute(
         name: AppRoutesName.ADMISSION_PAGE,

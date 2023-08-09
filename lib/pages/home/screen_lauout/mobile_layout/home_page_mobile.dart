@@ -11,7 +11,18 @@ class HomePageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: buildAppBar(title: "General Register"),
+      drawer: NavigationDrawer(children: [
+        ListTile(title: Text("School Information"),onTap: (){
+          context.pop();
+          context.pushNamed(AppRoutesName.SCHOOL_PAGE);
+        },),
+        ListTile(title: Text("Student"),onTap: (){}),
+        ListTile(title: Text("Leaving Certificate"),onTap: (){}),
+        ListTile(title: Text("Bonafide"),onTap: (){}),
+        ListTile(title: Text("Logout"),onTap: (){}),
+      ]),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: GridView.count(
@@ -25,7 +36,7 @@ class HomePageMobile extends StatelessWidget {
                 (index) {
                   switch (index) {
                     case 1:
-                      context.pushNamed(AppRoutesName.SCHOOL_PAGE);
+                      context.pushNamed(AppRoutesName.SCHOOL_INFORMATION_PAGE);
                     case 2:
                       context.pushNamed(AppRoutesName.ADMISSION_PAGE);
                     case 3:

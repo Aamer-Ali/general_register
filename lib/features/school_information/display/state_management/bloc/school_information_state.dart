@@ -1,45 +1,5 @@
 part of 'school_information_bloc.dart';
 
-abstract class SchoolInformationState extends Equatable {
-  const SchoolInformationState();
-}
-
-class SchoolInformationInitialState extends SchoolInformationState {
-  List<RadioButtonValueAttribute> isMultipleRegisterList=getIsMultipleRegisterValues();
-
-  final List<DropDownValueAttributes> upperClassList = getClassList();
-  final List<DropDownValueAttributes> lowerClassList = getClassList();
-  final List<DropDownValueAttributes> aidTypeList = getAidType();
-
-  final int? currentSelectionIndex;
-  final DropDownValueAttributes? upperClassSelected;
-  final DropDownValueAttributes? lowerClassSelected;
-  final DropDownValueAttributes? aidTypeSelected;
-  // final DropDownValueAttributes? aidTypeSelected;
-  final Uint8List? image;
-
-  SchoolInformationInitialState({
-    this.currentSelectionIndex,
-    this.upperClassSelected,
-    this.lowerClassSelected,
-    this.aidTypeSelected,
-    this.image,
-  });
-
-  @override
-  List<Object?> get props => [
-        isMultipleRegisterList,
-        currentSelectionIndex,
-        upperClassList,
-        lowerClassList,
-        aidTypeList,
-        upperClassSelected,
-        lowerClassSelected,
-        aidTypeSelected,
-        image
-      ];
-}
-
 List<DropDownValueAttributes> getClassList() {
   return [
     DropDownValueAttributes(label: "First", value: 1),
@@ -69,4 +29,73 @@ List<RadioButtonValueAttribute> getIsMultipleRegisterValues() {
     RadioButtonValueAttribute(label: 'Yes', value: 1),
     RadioButtonValueAttribute(label: "No", value: 2),
   ];
+}
+
+abstract class SchoolInformationState extends Equatable {
+  const SchoolInformationState();
+}
+
+class SchoolInformationInitialState extends SchoolInformationState {
+  const SchoolInformationInitialState();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class SchoolInformationCreateUpdateSchoolState extends SchoolInformationState {
+  List<RadioButtonValueAttribute> isMultipleRegisterList = getIsMultipleRegisterValues();
+
+  final List<DropDownValueAttributes> upperClassList = getClassList();
+  final List<DropDownValueAttributes> lowerClassList = getClassList();
+  final List<DropDownValueAttributes> aidTypeList = getAidType();
+
+  final int? currentSelectionIndex;
+  final DropDownValueAttributes? upperClassSelected;
+  final DropDownValueAttributes? lowerClassSelected;
+  final DropDownValueAttributes? aidTypeSelected;
+
+  // final DropDownValueAttributes? aidTypeSelected;
+  final Uint8List? image;
+
+  SchoolInformationCreateUpdateSchoolState({
+    this.currentSelectionIndex,
+    this.upperClassSelected,
+    this.lowerClassSelected,
+    this.aidTypeSelected,
+    this.image,
+  });
+
+  @override
+  List<Object?> get props => [
+        isMultipleRegisterList,
+        currentSelectionIndex,
+        upperClassList,
+        lowerClassList,
+        aidTypeList,
+        upperClassSelected,
+        lowerClassSelected,
+        aidTypeSelected,
+        image
+      ];
+}
+
+class SchoolInformationGetSuccessState extends SchoolInformationState {
+  const SchoolInformationGetSuccessState();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class SchoolInformationPageLoadingState extends SchoolInformationState {
+  @override
+  List<Object?> get props => [];
+}
+
+class SchoolInformationPageErrorState extends SchoolInformationState {
+  String message;
+
+  SchoolInformationPageErrorState({required this.message});
+
+  @override
+  List<Object?> get props => [message];
 }

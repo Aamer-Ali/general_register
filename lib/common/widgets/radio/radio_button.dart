@@ -12,7 +12,7 @@ class BuildRadioButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: BuildSimpleText(attributes: TextAttributes(text: "Multiple Register Book"))),
+        Expanded(child: BuildText(attributes: TextAttributes(text: "Multiple Register Book"))),
         ...attributes.valueAttributes.map(
               (element) =>
               Expanded(

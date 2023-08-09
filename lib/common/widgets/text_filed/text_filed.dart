@@ -9,7 +9,7 @@ class BuildTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
+      margin: const EdgeInsets.only(bottom: 10),
       child: TextFormField(
 
         validator: attributes.functionOnValidated,
@@ -22,7 +22,7 @@ class BuildTextField extends StatelessWidget {
           labelText: attributes.labelText,
           hintText: attributes.hintText,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(5),
           ),
         ),
       ),
